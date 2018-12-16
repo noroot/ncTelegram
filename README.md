@@ -1,4 +1,6 @@
-# ncTelegram
+# WIP: on Better console telegram
+
+At this point this is just my fork of ncTelegram with some juice.
 
 A ncurses Telegram client developed in Python with the urwid library.
 

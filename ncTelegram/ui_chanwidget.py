@@ -51,7 +51,7 @@ class ChanWidget(urwid.ListBox):
     def update_chan_list(self):
 
         # refresh of chan list
-        self.chan_list = urwid.SimpleFocusListWalker([urwid.AttrMap(urwid.Text("Chan list:"), 'status_bar')])
+        self.chan_list = urwid.SimpleFocusListWalker([urwid.AttrMap(urwid.Text("Channels:"), 'status_bar')])
         super().__init__(self.chan_list)
 
 
@@ -72,11 +72,11 @@ class ChanWidget(urwid.ListBox):
             label = print_name.replace('_', ' ')
 
             if chan['peer_type'] == 'user':
-                label = "➜  " + label
+                label = "@  " + label
             elif chan['peer_type'] == 'chat':
-                label = "➜➜ " + label
+                label = "G " + label
             elif chan['peer_type'] == 'channel':
-                label = "⤨  " + label
+                label = "C  " + label
 
             if cmd in self.msg_chan and self.msg_chan[cmd] != 0:
                 label = label + ' [' + str(self.msg_chan[cmd]) + ']'
@@ -94,7 +94,6 @@ class ChanWidget(urwid.ListBox):
         if not 'current_pos' in locals():
             self.current_chan_pos = 1
             current_pos = pos -1
-
 
         pos +=1
         self.chan_list.insert(pos, urwid.AttrMap(urwid.Divider('─'), 'separator'))

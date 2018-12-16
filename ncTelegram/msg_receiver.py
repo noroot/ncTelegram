@@ -36,6 +36,8 @@ class MessageReceiver(threading.Thread):
                     msg_cmd = msg['receiver']['id']
 
 
+                #print(msg)
+                #print(msg_cmd)
                 if msg['date'] < self.Telegram_ui.boot_time:
                     if not msg['unread']:
                         continue

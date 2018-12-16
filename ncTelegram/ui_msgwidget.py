@@ -195,7 +195,7 @@ class MessageWidget(urwid.ListBox):
             self.pos = self.pos +1
             self.prev_date[current_cmd] = cur_date
 
-        hour = time.strftime(' %H:%M ', time.localtime(date))
+        hour = time.strftime('[%H:%M:%S]', time.localtime(date))
 
         size_name = 9
 
@@ -204,7 +204,7 @@ class MessageWidget(urwid.ListBox):
                                    ('separator', " │ ")])
 
         message_text = urwid.Text(text)
-        message_to_display = urwid.Columns([(size_name +10, message_meta), message_text])
+        message_to_display = urwid.Columns([(size_name +13, message_meta), message_text])
         if at_begining:
             print_position = 0
         else:
